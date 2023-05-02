@@ -1,8 +1,12 @@
 import { useState } from "react";
-import Results from "./Results";
 
 const FinancingOptions = () => {
     const [revenue, setRevenue] = useState("0");
+    const [desiredLoan, setDesiredLoan] = useState("0");
+    const [revenueShare, setRevenueShare] = useState("0");
+    const [revenueFrequency, setRevenueFrequency] = useState("0");
+    const [repaymentDelay, setRepaymentDelay] = useState("0");
+    const [fundsPurpose, setFundsPurpose] = useState("0");
 
     const handleSubmit = (event) => {
         event.preventDefault();
@@ -28,8 +32,8 @@ const FinancingOptions = () => {
                     {/* TODO: make it a field that has to be filled out */}
                     <input
                         type="text"
-                        value={revenue}
-                        onChange={(event) => setRevenue(event.target.value)}
+                        value={desiredLoan}
+                        onChange={(event) => setDesiredLoan(event.target.value)}
                     />
                 </label>
 
@@ -38,8 +42,8 @@ const FinancingOptions = () => {
                     {/* TODO: make it a field that has to be filled out */}
                     <input
                         type="text"
-                        value={revenue}
-                        onChange={(event) => setRevenue(event.target.value)}
+                        value={revenueShare}
+                        onChange={(event) => setRevenueShare(event.target.value)}
                     />
                 </label>
 
@@ -48,8 +52,8 @@ const FinancingOptions = () => {
                     {/* TODO: make it a field that has to be filled out */}
                     <input
                         type="text"
-                        value={revenue}
-                        onChange={(event) => setRevenue(event.target.value)}
+                        value={revenueFrequency}
+                        onChange={(event) => setRevenueFrequency(event.target.value)}
                     />
                 </label>
 
@@ -58,8 +62,8 @@ const FinancingOptions = () => {
                     {/* TODO: make it a field that has to be filled out */}
                     <input
                         type="text"
-                        value={revenue}
-                        onChange={(event) => setRevenue(event.target.value)}
+                        value={repaymentDelay}
+                        onChange={(event) => setRepaymentDelay(event.target.value)}
                     />
                 </label>
 
@@ -68,8 +72,8 @@ const FinancingOptions = () => {
                     {/* TODO: make it a field that has to be filled out */}
                     <input
                         type="text"
-                        value={revenue}
-                        onChange={(event) => setRevenue(event.target.value)}
+                        value={fundsPurpose}
+                        onChange={(event) => setFundsPurpose(event.target.value)}
                     />
                 </label>
             </form>
@@ -79,12 +83,12 @@ const FinancingOptions = () => {
                 {/* <Results></Results> */}
 
                 <div>Anual Business Revenue {revenue}</div>
-                <div>Funding amount {revenue}</div>
-                <div>Fees {revenue}</div>
+                <div>Funding amount {desiredLoan}</div>
+                <div>Fees {revenueShare}</div>
                 <hr />
-                <div>Total revenue share {revenue}</div>
-                <div>Expected transfers {revenue}</div>
-                <div>Explected completion date {revenue}</div>
+                <div>Total revenue share {revenueFrequency}</div>
+                <div>Expected transfers {repaymentDelay}</div>
+                <div>Explected completion date {fundsPurpose}</div>
             </div>
         </div>
     );
