@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import FinancingInput from './form-fields/FinancingInput';
+import FinancingRange from './form-fields/FinancingRange';
 
 // the endpoint returns an error - failed to fetch
 const FinancingOptions = ({ configuration }) => {
@@ -24,7 +25,13 @@ const FinancingOptions = ({ configuration }) => {
     return (
         <div className="options">
             <form className="options__form" onSubmit={handleSubmit}>
-                <FinancingInput 
+                <FinancingInput
+                    label="What is your annual business revenue?" 
+                    config={config} 
+                    setConfig={setConfig} 
+                />
+                <FinancingRange
+                    label="What is your desired loan amount?"
                     config={config} 
                     setConfig={setConfig} 
                 />
@@ -33,7 +40,7 @@ const FinancingOptions = ({ configuration }) => {
             </form>
 
             <div>
-                <div>Anual Business Revenue: ${config.revenue_amount.value || 0}</div>
+                <div>Anual Business Revenue: ${config?.revenue_amount?.value || 0}</div>
             </div>
         </div>
     );

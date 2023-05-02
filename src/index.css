@@ -22,6 +22,15 @@
   flex-direction: column;
 }
 
+.options__range {
+  display: flex;
+  flex-direction: column;
+}
+
+.options__range-section {
+  display: flex;
+}
+
 /* controls styles */
 .controls {
 

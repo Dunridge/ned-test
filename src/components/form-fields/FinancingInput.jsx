@@ -1,8 +1,8 @@
-const FinancingInput = ({ config, setConfig }) => {
+const FinancingInput = ({ label, config, setConfig }) => {
     return (
         <>
             <label className="options__field">
-                <span>What is your annual business revenue?</span>
+                <span>{ label }</span>
                 {/* TODO: make it a field that has to be filled out */}
                 <input
                     type="number"
