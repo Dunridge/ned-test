@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-const FinancingOptions = () => {
+const FinancingOptions = ({ configuration }) => {
     const [revenue, setRevenue] = useState("0");
     const [desiredLoan, setDesiredLoan] = useState("0");
     const [revenueShare, setRevenueShare] = useState("0");
@@ -10,6 +10,7 @@ const FinancingOptions = () => {
 
     const handleSubmit = (event) => {
         event.preventDefault();
+        console.log(configuration);
         // TODO: define the submit if the logic demands it (for now the data is reflected on the UI at once)
     };
 
@@ -76,6 +77,9 @@ const FinancingOptions = () => {
                         onChange={(event) => setFundsPurpose(event.target.value)}
                     />
                 </label>
+
+                {/* TODO: hide this button after testing */}
+                <button type="submit">Submit</button>
             </form>
 
             <div className="options__results">
