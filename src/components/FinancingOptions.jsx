@@ -24,13 +24,16 @@ const FinancingOptions = ({ configuration }) => {
     return (
         <div className="options">
             <form className="options__form" onSubmit={handleSubmit}>
-                <FinancingInput config={config} setConfig={setConfig} />
+                <FinancingInput 
+                    config={config} 
+                    setConfig={setConfig} 
+                />
             
                 <button type="submit">Submit</button>
             </form>
 
             <div>
-                <div>Anual Business Revenue: ${config?.revenueAmount?.value || 0}</div>
+                <div>Anual Business Revenue: ${config.revenue_amount.value || 0}</div>
             </div>
         </div>
     );
