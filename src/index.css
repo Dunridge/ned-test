@@ -29,6 +29,12 @@
 
 .options__range-section {
   display: flex;
+  align-items: center;
+}
+
+.options__range-values {
+  display: flex;
+  justify-content: space-between;
 }
 
 /* controls styles */
