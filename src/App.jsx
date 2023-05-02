@@ -28,7 +28,11 @@ function App() {
                     revenuePercentageMax: configuration[10],
                 };
 
+                console.log('formattedConfiguration', formattedConfiguration);
+
                 setConfiguration(formattedConfiguration);
+
+                console.log(configuration);
             })
             .catch((error) => console.error(error));
     }, []);
