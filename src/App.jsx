@@ -13,26 +13,16 @@ function App() {
         )
             .then((response) => response.json())
             .then((configuration) => {
-                // console.log('configuration', configuration);
-                let formattedConfiguration = {
-                    desiredFeePercentage: configuration[0],
-                    desiredRepaymentDelay: configuration[1],
-                    fundingAmount: configuration[2],
-                    revenueAmount: configuration[3],
-                    revenuePercentage: configuration[4],
-                    revenueSharedFrequency: configuration[5],
-                    useOfFunds: configuration[6],
-                    fundingAmountMax: configuration[7],
-                    fundingAmountMin: configuration[8],
-                    revenuePercentageMin: configuration[9],
-                    revenuePercentageMax: configuration[10],
-                };
-
-                console.log('formattedConfiguration', formattedConfiguration);
-
+                let formattedConfiguration = {};
+                configuration.forEach(property => {
+                    formattedConfiguration = {
+                        ...formattedConfiguration,
+                        [property.name]: property
+                    }
+                })
+                // console.log('formattedConfiguration', formattedConfiguration);
                 setConfiguration(formattedConfiguration);
-
-                console.log(configuration);
+                // console.log(configuration);
             })
             .catch((error) => console.error(error));
     }, []);
