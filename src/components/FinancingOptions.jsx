@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import FinancingInput from './form-fields/FinancingInput';
 
 // the endpoint returns an error - failed to fetch
 const FinancingOptions = ({ configuration }) => {
@@ -23,26 +24,8 @@ const FinancingOptions = ({ configuration }) => {
     return (
         <div className="options">
             <form className="options__form" onSubmit={handleSubmit}>
-            <label className="options__field">
-                    <span>What is your annual business revenue?</span>
-                    {/* TODO: make it a field that has to be filled out */}
-                    <input
-                        type="number"
-                        placeholder={config?.revenueAmount?.placeholder}
-                        value={config?.revenueAmount?.value} // config.revenueAmount.placeholder
-                        onChange={(event) => {
-                            console.log("config", config);
-                            console.log("event.target.value: ", event.target.value);
-                            setConfig({
-                                ...config,
-                                revenueAmount: {
-                                    ...config.revenueAmount,
-                                    value: event.target.value
-                                }
-                            });
-                        }}
-                    />
-                </label>
+                <FinancingInput config={config} setConfig={setConfig} />
+            
                 <button type="submit">Submit</button>
             </form>
 
