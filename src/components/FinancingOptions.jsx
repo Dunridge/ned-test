@@ -1,6 +1,11 @@
 import { useState } from "react";
 
 const FinancingOptions = ({ configuration }) => {
+    console.log('configuration', configuration);
+    const [config, setConfig] = useState(configuration);
+    // TODO: use the input for the values 
+    // TODO: solve the issue here
+    // const [revenue, setRevenue] = useState(configuration?.revenueAmount?.placeholder);
     const [revenue, setRevenue] = useState("0");
     const [desiredLoan, setDesiredLoan] = useState("0");
     const [revenueShare, setRevenueShare] = useState("0");
@@ -24,7 +29,10 @@ const FinancingOptions = ({ configuration }) => {
                     <input
                         type="text"
                         value={revenue}
-                        onChange={(event) => setRevenue(event.target.value)}
+                        onChange={(event) => {
+                            console.log(config);
+                            setRevenue(event.target.value);
+                        }}
                     />
                 </label>
 
