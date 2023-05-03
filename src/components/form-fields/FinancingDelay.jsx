@@ -8,8 +8,8 @@ const FinancingDelay = ({ label, config, setConfig }) => {
         let frequency = config?.desired_repayment_delay?.value;
 
         const options = frequency?.split("*");
-        console.log("Frequency: ", frequency);
-        console.log('options', options); // ['30 days', '60 days', '90 days']
+        // console.log("Frequency: ", frequency);
+        // console.log('options', options); // ['30 days', '60 days', '90 days']
         setOptions(options);
         // debugger;
     }, [config]);
@@ -31,11 +31,6 @@ const FinancingDelay = ({ label, config, setConfig }) => {
 
     return ( 
         <>
-            {/* <div>Test</div> */}
-            {/* <div>{config}</div> */}
-            {/* <div>{config?.desired_repayment_delay?.name}</div> */}
-            {/* <div>{config?.desired_repayment_delay?.value}</div> */}
-            {/* TODO: check the endpoint and whether it's working */}
             <label className="options__field">
                 <span>{ label }</span>
                 <select value={config?.desired_repayment_delay?.value || 0}

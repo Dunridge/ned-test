@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import FinancingInput from "./form-fields/FinancingInput";
 import FinancingRange from "./form-fields/FinancingRange";
-import FinancingFrequency from "./form-fields/FinancingDelay";
+import FinancingFrequency from "./form-fields/FinancingFrequency";
 import FinancingDelay from "./form-fields/FinancingDelay";
 
 // the endpoint returns an error - failed to fetch
@@ -14,6 +14,7 @@ const FinancingOptions = ({ configuration }) => {
     // track the changes of the configuration to triggr useEffect several times
     // TODO: this piece of code rewrites the object
     useEffect(() => {
+        // TODO: consider lifting all of the state manipulations so you pass only specific properties
         const sharePercentage = calculateSharePercentage();
 
         setConfig((prevConfig) => {
@@ -98,7 +99,12 @@ const FinancingOptions = ({ configuration }) => {
 
                 {/* TODO: add the FinancingFrequency component here here */}
 
-                <div>Revenue Shared Frequency: ...</div>
+                {/* <div>Revenue Shared Frequency: ...</div> */}
+                <FinancingFrequency
+                    label="Revenue Shared Frequency"
+                    config={config}
+                    setConfig={setConfig}
+                />
 
                 {/* TODO: continue working on the financing frequency */}
                 {/* TODO: rename this component to FinancingDelay */}
