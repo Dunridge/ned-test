@@ -24,7 +24,7 @@ const FinancingFrequency = ({ label, config, setConfig }) => {
 
             {options?.map((option, index) => {
                 return (
-                    <label>
+                    <label key={index}>
                         <input
                             type="radio"
                             name={option}
