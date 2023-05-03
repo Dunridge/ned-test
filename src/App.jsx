@@ -20,7 +20,7 @@ function App() {
                         [property.name]: property
                     }
                 })
-                // console.log('formattedConfiguration', formattedConfiguration);
+                console.log('formattedConfiguration', formattedConfiguration);
                 setConfiguration(formattedConfiguration);
                 // console.log(configuration);
             })
