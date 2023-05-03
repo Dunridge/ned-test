@@ -1,7 +1,8 @@
 import { useEffect, useState } from "react";
 import FinancingInput from "./form-fields/FinancingInput";
 import FinancingRange from "./form-fields/FinancingRange";
-import FinancingFrequency from "./form-fields/FinancingFrequency";
+import FinancingFrequency from "./form-fields/FinancingDelay";
+import FinancingDelay from "./form-fields/FinancingDelay";
 
 // the endpoint returns an error - failed to fetch
 const FinancingOptions = ({ configuration }) => {
@@ -95,9 +96,14 @@ const FinancingOptions = ({ configuration }) => {
                     {config?.revenue_percentage?.value || 0}%
                 </div>
 
+                {/* TODO: add the FinancingFrequency component here here */}
+
+                <div>Revenue Shared Frequency: ...</div>
+
                 {/* TODO: continue working on the financing frequency */}
-                <FinancingFrequency
-                    label="Revenue Shared Frequency"
+                {/* TODO: rename this component to FinancingDelay */}
+                <FinancingDelay
+                    label="Desired Repayment Delay"
                     config={config}
                     setConfig={setConfig}
                 />

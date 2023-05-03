@@ -5,6 +5,8 @@ import { useState, useEffect } from "react";
 
 function App() {
     const [configuration, setConfiguration] = useState({});
+    // as the options are stored in the value parameter with the `*` 
+    // delimiter - I'll store the data in the placeholder property since it is empty
 
     useEffect(() => {
         // some malfunction with the endpoint
