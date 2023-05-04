@@ -9,22 +9,6 @@ import FinancingResults from "./FinancingResults";
 const FinancingOptions = ({ configuration }) => {
     const [config, setConfig] = useState(configuration || {});
 
-    useEffect(() => {
-        const sharePercentage = calculateSharePercentage();
-
-        setConfig((prevConfig) => {
-
-            return {
-                ...configuration,
-                ...prevConfig,
-                revenue_percentage: {
-                    ...config.revenue_percentage,
-                    value: sharePercentage,
-                },
-            };
-        });
-    }); // , [configuration]
-
     const calculateSharePercentage = () => {
         let revenue_amount = config?.revenue_amount?.value || 1;
         let funding_amount = revenue_amount / 3;
@@ -50,6 +34,22 @@ const FinancingOptions = ({ configuration }) => {
     const handleSubmit = (event) => {
         event.preventDefault();
     };
+
+    useEffect(() => {
+        const sharePercentage = calculateSharePercentage();
+
+        setConfig((prevConfig) => {
+
+            return {
+                ...configuration,
+                ...prevConfig,
+                revenue_percentage: {
+                    ...config.revenue_percentage,
+                    value: sharePercentage,
+                },
+            };
+        });
+    }, [calculateSharePercentage, configuration, config.revenue_percentage]); // , [configuration]
 
     return (
         <div className="options">
