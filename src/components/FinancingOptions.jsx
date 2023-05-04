@@ -42,6 +42,7 @@ const FinancingOptions = ({ configuration }) => {
             };
         });
     },
+    // eslint-disable-next-line
     [sharePercentage, fundingAmount]
     // [configuration, config, sharePercentage, fundingAmount]
     // [configuration, config, config.funding_amount, config?.revenue_amount?.value, config.revenue_percentage]
