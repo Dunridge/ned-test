@@ -8,7 +8,7 @@ const FinancingRange = ({ label, config, setConfig }) => {
                     <div className="options__range-input">
                         <div className="options__range-values">
                             <div className="options__range-value">{ 0 }</div>
-                            <div className="options__range-value">{ 1/3 * config?.revenue_amount?.value }</div>
+                            <div className="options__range-value">{ (Math.round(1/3 * config?.revenue_amount?.value * 100) / 100).toString() }</div>
                         </div>
                         <input
                             type="range"

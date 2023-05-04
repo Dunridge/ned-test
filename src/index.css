@@ -33,6 +33,18 @@ body {
   height: 91vh;
 }
 
+.options__range-section {
+  width: 100%;
+}
+
+.options__range-input {
+  width: 100%;
+}
+
+.options__range-input input {
+  width: 100%;
+}
+
 .options__form-fields {
   margin-right: 22px;
   padding: 32px 76px;
