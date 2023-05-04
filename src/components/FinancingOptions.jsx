@@ -23,7 +23,7 @@ const FinancingOptions = ({ configuration }) => {
                 },
             };
         });
-    }, [configuration]);
+    }); // , [configuration]
 
     const calculateSharePercentage = () => {
         let revenue_amount = config?.revenue_amount?.value || 1;
