@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import FinancingInput from "./form-fields/FinancingInput";
 import FinancingRange from "./form-fields/FinancingRange";
 import FinancingFrequency from "./form-fields/FinancingFrequency";
@@ -8,37 +8,25 @@ import FinancingResults from "./FinancingResults";
 
 const FinancingOptions = ({ configuration }) => {
     const [config, setConfig] = useState(configuration || {});
+    const [fundingAmount, setFundingAmount] = useState(0);
 
     const handleSubmit = (event) => {
         event.preventDefault();
     };
 
-    useEffect(() => {
-        // solve the error when you move this to useEffect
-        // const calculateSharePercentage = () => {
+    const sharePercentage = useMemo(() => {
         let revenue_amount = config?.revenue_amount?.value || 1;
         let funding_amount = revenue_amount / 3;
+        setFundingAmount(funding_amount);
         let sharePercentage =
             (0.156 / 6.2055 / revenue_amount) * (funding_amount * 10);
         sharePercentage = Math.round(sharePercentage * 10) / 10;
 
-        // setConfig({
-        //     ...config,
-        //     revenue_percentage: {
-        //         ...config.revenue_percentage,
-        //         value: sharePercentage,
-        //     },
-        //     funding_amount: {
-        //         ...config.funding_amount,
-        //         value: funding_amount,
-        //     },
-        // });
+        return sharePercentage;
+    }, [config?.revenue_amount?.value]);
 
-        // return sharePercentage;
-        // };
-
-        // const sharePercentage = calculateSharePercentage();
-
+    useEffect(() => {
+        
         setConfig((prevConfig) => {
             return {
                 ...configuration,
@@ -49,12 +37,17 @@ const FinancingOptions = ({ configuration }) => {
                 },
                 funding_amount: {
                     ...config.funding_amount,
-                    value: funding_amount,
+                    value: fundingAmount // funding_amount,
                 },
             };
         });
-    }, [configuration]); // , [configuration]
-    // configuration, config.revenue_percentage, config.funding_amount
+    },
+    [sharePercentage, fundingAmount]
+    // [configuration, config, sharePercentage, fundingAmount]
+    // [configuration, config, config.funding_amount, config?.revenue_amount?.value, config.revenue_percentage]
+    // [configuration]
+    );
+    // [configuration, config.revenue_percentage, config.funding_amount]
 
     return (
         <div className="options">
