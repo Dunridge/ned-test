@@ -1,3 +1,6 @@
+
+
+// TODO: delete this component
 const Footer = () => {
     return ( 
         <div className="controls">

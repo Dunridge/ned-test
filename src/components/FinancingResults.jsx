@@ -1,6 +1,6 @@
 const FinancingResults = ({ config }) => {
     return (
-        <div>
+        <div className="results">
             <div>
                 Anual Business Revenue: ${config?.revenue_amount?.value || 0}
             </div>

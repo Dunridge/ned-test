@@ -20,12 +20,12 @@ const FinancingOptions = ({ configuration }) => {
         const sharePercentage = calculateSharePercentage();
 
         setConfig((prevConfig) => {
-            console.log('prevConfig', prevConfig);
+            console.log("prevConfig", prevConfig);
             // TODO: add configuration here as a spread
-            console.log('configuration in effect:', configuration);
-            
+            console.log("configuration in effect:", configuration);
+
             return {
-                ...configuration, // can cause issues - TODO: figure out why this is not set in the hook 
+                ...configuration, // can cause issues - TODO: figure out why this is not set in the hook
                 ...prevConfig,
                 revenue_percentage: {
                     ...config.revenue_percentage,
@@ -82,49 +82,54 @@ const FinancingOptions = ({ configuration }) => {
     return (
         <div className="options">
             <form className="options__form" onSubmit={handleSubmit}>
-                <FinancingInput
-                    label="What is your annual business revenue?"
-                    config={config}
-                    setConfig={setConfig}
-                />
+                <div className="options__form-container">
+                    <div className="options__form-fields">
+                        <FinancingInput
+                            label="What is your annual business revenue?"
+                            config={config}
+                            setConfig={setConfig}
+                        />
 
-                <FinancingRange
-                    label="What is your desired loan amount?"
-                    config={config}
-                    setConfig={setConfig}
-                />
+                        <FinancingRange
+                            label="What is your desired loan amount?"
+                            config={config}
+                            setConfig={setConfig}
+                        />
 
-                <div>
-                    Revenue share percentage:{" "}
-                    {config?.revenue_percentage?.value || 0}%
+                        <div>
+                            Revenue share percentage:{" "}
+                            {config?.revenue_percentage?.value || 0}%
+                        </div>
+
+                        <FinancingFrequency
+                            label="Revenue Shared Frequency"
+                            config={config}
+                            setConfig={setConfig}
+                        />
+
+                        <FinancingDelay
+                            label="Desired Repayment Delay"
+                            config={config}
+                            setConfig={setConfig}
+                        />
+
+                        <FinancingPurpose
+                            label="What will you use the funds for?"
+                            config={config}
+                            setConfig={setConfig}
+                        />
+                    </div>
+                    <FinancingResults config={config} />
                 </div>
 
-                <FinancingFrequency
-                    label="Revenue Shared Frequency"
-                    config={config}
-                    setConfig={setConfig}
-                />
-
-                <FinancingDelay
-                    label="Desired Repayment Delay"
-                    config={config}
-                    setConfig={setConfig}
-                />
-
-                <FinancingPurpose
-                    label="What will you use the funds for?"
-                    config={config}
-                    setConfig={setConfig}
-                />
+                {/* TODO: remove this one  */}
+                <div></div>
 
                 <div className="options__controls">
-                    <button type="cancel">Cancel</button>
-                    <button type="submit">Next</button>
+                    <button className="options__controls-cancel" type="cancel">Cancel</button>
+                    <button className="options__controls-submit" type="submit">Next</button>
                 </div>
             </form>
-
-            <FinancingResults config={config}/>
-
         </div>
     );
 };

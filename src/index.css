@@ -1,8 +1,22 @@
 
+body {
+  margin: 0;
+}
+
+.app {
+  background: #F9F9F9;
+}
 
 /* header styles */
 .header {
-  
+  height: 60px;
+  background: #FFFFFF;
+  box-shadow: 0px 4px 9px rgba(0, 0, 0, 0.07);
+}
+
+.header p {
+  margin-left: 22px;
+  color: #0962EA;
 }
 
 /* app styles */
@@ -14,7 +28,22 @@
 /* options styles */
 .options {
   display: flex;
-  justify-content: space-around;
+  flex-direction: column;
+  align-items: center;
+  height: 91vh;
+}
+
+.options__form-fields {
+  margin-right: 22px;
+  padding: 32px 76px;
+  background: #FFFFFF;
+  box-shadow: 0px 3px 20px 6px rgba(0, 0, 0, 0.02);
+  border-radius: 20px;
+}
+
+.options__form-container {
+  margin: 54px 180px 54px;
+  display: flex;
 }
 
 .options__field {
@@ -41,10 +70,44 @@
   color: lightblue;
 }
 
-/* controls styles */
-.controls {
+.options__controls {
+  margin: 0 182px;
+  background: #FFFFFF;
+  border-radius: 20px;
+  display: flex;
+  justify-content: space-around;
+}
+
+.options__controls-submit {
+  background: #0E7CF4;
+  margin: 12px 32px;
+  border-radius: 20px;
+  width: 100px;
+  height: 60px;
+}
+
+.options__controls-cancel {
+  background: #FFFFFF;
+  border: 1px solid #0E7CF4;
+  margin: 12px 32px;
+  border-radius: 20px;
+  width: 100px;
+  height: 60px;
+}
+
+/* results */
+
+.results {
+  padding: 32px 76px;
+  background: #FFFFFF;
+  box-shadow: 0px 3px 20px 6px rgba(0, 0, 0, 0.02);
+  border-radius: 20px;
 
 }
+
+/* controls styles */
+
+
 
 /* field */
 
@@ -52,6 +115,10 @@
 .field {
   display: flex;
   flex-direction: column;
+}
+
+.field__input select, input {
+  width: 50px;
 }
 
 /* purpose */
