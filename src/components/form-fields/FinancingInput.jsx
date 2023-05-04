@@ -3,11 +3,10 @@ const FinancingInput = ({ label, config, setConfig }) => {
         <>
             <label className="options__field">
                 <span>{ label }</span>
-                {/* TODO: make it a field that has to be filled out */}
                 <input
                     type="number"
                     placeholder={config?.revenue_amount?.placeholder}
-                    value={config?.revenue_amount?.value || 0} // config.revenueAmount.placeholder
+                    value={config?.revenue_amount?.value || 0}
                     onChange={(event) => {
                         console.log("config", config);
                         console.log("event.target.value: ", event.target.value);

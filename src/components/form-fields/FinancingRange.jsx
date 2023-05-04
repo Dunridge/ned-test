@@ -1,34 +1,23 @@
 const FinancingRange = ({ label, config, setConfig }) => {
-    console.log('FinancingRange: ', config?.revenue_amount?.value); // it's here
+
     return (
         <div className="options__range">
             <label>
                 <span>{label}</span>
-                {/* TODO: make it a field that has to be filled out */}
-                {/* TODO: add the max and the min values here  */}
                 <div className="options__range-section">
                     <div className="options__range-input">
                         <div className="options__range-values">
-                            {/* Minimum value calculation not specified in the conditions: */}
-                            {/* <div className="options__range-value">{ config?.funding_amount_min?.value }</div> */}
                             <div className="options__range-value">{ 0 }</div>
-                            {/* <div className="options__range-value">{ config?.funding_amount_max?.value }</div> */}
                             <div className="options__range-value">{ 1/3 * config?.revenue_amount?.value }</div>
                         </div>
                         <input
                             type="range"
                             min={"0"} // not specified in the conditions
-                            // min={`${config?.funding_amount_min?.value}` || "0"}
-                            // max={
-                            //     `${config?.funding_amount_max?.value}` || "1000"
-                            // }
                             max={
                                 `${1/3 * config?.revenue_amount?.value}` || "1000"
                             }
-                            value={config?.funding_amount?.value || 0} // config.revenueAmount.placeholder
+                            value={config?.funding_amount?.value || 0}
                             onChange={(event) => {
-                                // console.log("config", config);
-                                // console.log("event.target.value: ", event.target.value);
                                 setConfig({
                                     ...config,
                                     funding_amount: {

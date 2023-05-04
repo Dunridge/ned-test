@@ -11,7 +11,6 @@ const FinancingResults = ({ config }) => {
                 Total revenue share: $
                 {(3 / 2) * config?.funding_amount?.value || 0}
             </div>
-            {/* TODO: read the conditions and set these values */}
             <div>Expected transfers: 47</div>
             <div>
                 Expected completion date:{" "}
