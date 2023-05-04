@@ -34,7 +34,7 @@ function App() {
             <Header></Header>
             <FinancingOptions configuration={configuration}></FinancingOptions>
             {/* TODO: or add the footer buttons to the app to avoid complexity */}
-            <Footer></Footer>
+            {/* <Footer></Footer> */}
         </div>
     );
 }

@@ -33,6 +33,9 @@ const FinancingPurpose = ({ label, config, setConfig }) => {
         console.log('newItem: ', newItem);
         setPurposeItems([...purposeItems, newItem]);
         // TODO: use the setter for the config to link it to the big config 
+
+        // TODO: update the config if necessary 
+        // setConfig(...)
     }
 
     const onDeletePurposeItem = (idToDelete) => {
@@ -46,8 +49,6 @@ const FinancingPurpose = ({ label, config, setConfig }) => {
         // TODO: correct the BEM namings for the classes
         <label className="field">
             <span>{label}</span>
-            {/* TODO: add another component in a loop or just add map and update it */}
-            {/* {config?.use_of_funds?.value} */}
 
             {/* Inputs for the form:  */}
 
@@ -90,23 +91,7 @@ const FinancingPurpose = ({ label, config, setConfig }) => {
                 <button onClick={onAddPurposeItem}>+</button>
             </div>
 
-            {/* { categories.map(category => {
-                return (
-                    <div>{category}</div>
-                );
-            }) } 
-            
-            const newItem = {
-            category,
-            description,
-            amount
-            };
-            
-            */}
-
             {/* The items rendered in a loop:  */}
-
-            
 
             { purposeItems.map(item => {
                 return (
@@ -118,8 +103,6 @@ const FinancingPurpose = ({ label, config, setConfig }) => {
                     </div>
                 );
             }) }
-
-
         </label>
     );
 };

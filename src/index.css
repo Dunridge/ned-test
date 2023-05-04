@@ -37,6 +37,10 @@
   justify-content: space-between;
 }
 
+.options__results--highlighted {
+  color: lightblue;
+}
+
 /* controls styles */
 .controls {
 
