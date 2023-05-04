@@ -3,6 +3,7 @@ import FinancingInput from "./form-fields/FinancingInput";
 import FinancingRange from "./form-fields/FinancingRange";
 import FinancingFrequency from "./form-fields/FinancingFrequency";
 import FinancingDelay from "./form-fields/FinancingDelay";
+import FinancingPurpose from "./form-fields/financing-purpose/FinancingPurpose";
 
 // the endpoint returns an error - failed to fetch
 const FinancingOptions = ({ configuration }) => {
@@ -97,19 +98,20 @@ const FinancingOptions = ({ configuration }) => {
                     {config?.revenue_percentage?.value || 0}%
                 </div>
 
-                {/* TODO: add the FinancingFrequency component here here */}
-
-                {/* <div>Revenue Shared Frequency: ...</div> */}
                 <FinancingFrequency
                     label="Revenue Shared Frequency"
                     config={config}
                     setConfig={setConfig}
                 />
 
-                {/* TODO: continue working on the financing frequency */}
-                {/* TODO: rename this component to FinancingDelay */}
                 <FinancingDelay
                     label="Desired Repayment Delay"
+                    config={config}
+                    setConfig={setConfig}
+                />
+
+                <FinancingPurpose
+                    label="What will you use the funds for?"
                     config={config}
                     setConfig={setConfig}
                 />

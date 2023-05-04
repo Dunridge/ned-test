@@ -41,3 +41,23 @@
 .controls {
 
 }
+
+/* field */
+
+/* TODO: change for all of the fields */
+.field {
+  display: flex;
+  flex-direction: column;
+}
+
+/* purpose */
+
+.purpose {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.purpose div {
+  margin-right: 4px;
+}
