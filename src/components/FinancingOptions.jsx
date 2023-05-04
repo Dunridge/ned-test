@@ -9,37 +9,37 @@ import FinancingResults from "./FinancingResults";
 const FinancingOptions = ({ configuration }) => {
     const [config, setConfig] = useState(configuration || {});
 
-    const calculateSharePercentage = () => {
+    const handleSubmit = (event) => {
+        event.preventDefault();
+    };
+
+    useEffect(() => {
+        // solve the error when you move this to useEffect
+        // const calculateSharePercentage = () => {
         let revenue_amount = config?.revenue_amount?.value || 1;
         let funding_amount = revenue_amount / 3;
         let sharePercentage =
             (0.156 / 6.2055 / revenue_amount) * (funding_amount * 10);
         sharePercentage = Math.round(sharePercentage * 10) / 10;
 
-        setConfig({
-            ...config,
-            revenue_percentage: {
-                ...config.revenue_percentage,
-                value: sharePercentage,
-            },
-            funding_amount: {
-                ...config.funding_amount,
-                value: funding_amount,
-            },
-        });
+        // setConfig({
+        //     ...config,
+        //     revenue_percentage: {
+        //         ...config.revenue_percentage,
+        //         value: sharePercentage,
+        //     },
+        //     funding_amount: {
+        //         ...config.funding_amount,
+        //         value: funding_amount,
+        //     },
+        // });
 
-        return sharePercentage;
-    };
+        // return sharePercentage;
+        // };
 
-    const handleSubmit = (event) => {
-        event.preventDefault();
-    };
-
-    useEffect(() => {
-        const sharePercentage = calculateSharePercentage();
+        // const sharePercentage = calculateSharePercentage();
 
         setConfig((prevConfig) => {
-
             return {
                 ...configuration,
                 ...prevConfig,
@@ -47,9 +47,14 @@ const FinancingOptions = ({ configuration }) => {
                     ...config.revenue_percentage,
                     value: sharePercentage,
                 },
+                funding_amount: {
+                    ...config.funding_amount,
+                    value: funding_amount,
+                },
             };
         });
-    }, [calculateSharePercentage, configuration, config.revenue_percentage]); // , [configuration]
+    }, [configuration]); // , [configuration]
+    // configuration, config.revenue_percentage, config.funding_amount
 
     return (
         <div className="options">
@@ -95,8 +100,12 @@ const FinancingOptions = ({ configuration }) => {
                 </div>
 
                 <div className="options__controls">
-                    <button className="options__controls-cancel" type="cancel">Cancel</button>
-                    <button className="options__controls-submit" type="submit">Next</button>
+                    <button className="options__controls-cancel" type="cancel">
+                        Cancel
+                    </button>
+                    <button className="options__controls-submit" type="submit">
+                        Next
+                    </button>
                 </div>
             </form>
         </div>
